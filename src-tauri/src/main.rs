@@ -16,14 +16,8 @@ fn greet(name: &str) -> String {
 
 #[tauri::command]
 fn scan_port(ip: String, port: u16) -> bool {
-
-
-
-
-
-
     let address = format!("{}:{}", ip, port);
-    match TcpStream::connect_timeout(&SocketAddr::new(ip.parse::<IpAddr>().expect("ip") ,port), std::time::Duration::from_secs(1),
+    match TcpStream::connect_timeout(&SocketAddr::new(ip.parse::<IpAddr>().expect("valid ipv4 was not entered"), port), std::time::Duration::from_secs(1),
     ) {
         Ok(_) => {
             eprintln!("your connection to port {} is valid ", port);

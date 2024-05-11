@@ -2,7 +2,6 @@ import {invoke} from "@tauri-apps/api/tauri";
 import "./App.css";
 
 
-
 function App() {
 
     async function startScan() {
@@ -12,19 +11,17 @@ function App() {
         const startPort = (document.getElementById("startPort") as HTMLInputElement).valueAsNumber;
 
 
-
-
         const endPort = (document.getElementById("endPort") as HTMLInputElement).valueAsNumber;
 
 
         for (let port = startPort; port <= endPort; port++) {
 
-                invoke("scan_port", {ip, port}).then(isOpen => {
-                    const results = document.getElementById('results');
-                    if (isOpen) {
-                        results!.innerHTML += `Port ${port} is open <br>`;
-                    }
-                });
+            invoke("scan_port", {ip, port}).then(isOpen => {
+                const results = document.getElementById('results');
+                if (isOpen) {
+                    results!.innerHTML += `Port ${port} is open <br>`;
+                }
+            });
 
         }
         // learn more about tauri commands at https://tauri.app/v1/guides/features/command
