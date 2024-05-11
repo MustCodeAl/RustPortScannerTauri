@@ -1,7 +1,6 @@
 import {invoke} from "@tauri-apps/api/tauri";
 import "./App.css";
 
-// const invoke = window.__TAURI__.invoke;
 
 
 function App() {
@@ -25,7 +24,6 @@ function App() {
                     if (isOpen) {
                         results!.innerHTML += `Port ${port} is open <br>`;
                     }
-                    // results!.innerHTML += `Port ${port} is ${isOpen ? 'open' : 'closed'}<br>`;
                 });
 
         }

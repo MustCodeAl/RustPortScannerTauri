@@ -1,6 +1,9 @@
-# Tauri + React + Typescript
+# Bolts simple port scanner
 
-This template should help get you started developing with Tauri, React and Typescript in Vite.
+Rust Port scanner to learn tauri, typescript,  and the tcp layer of the osi model
+Might add more features later
+
+
 
 ## Recommended IDE Setup
 
