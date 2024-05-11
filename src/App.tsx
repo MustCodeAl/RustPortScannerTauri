@@ -12,30 +12,29 @@ function App() {
 
         const startPort = (document.getElementById("startPort") as HTMLInputElement).valueAsNumber;
 
+
+
+
         const endPort = (document.getElementById("endPort") as HTMLInputElement).valueAsNumber;
 
 
         for (let port = startPort; port <= endPort; port++) {
 
-
-            invoke("scan_port", {ip, port}).then(isOpen => {
-                const results = document.getElementById('results');
-
-                if (isOpen) {
-                    results!.innerHTML += `Port ${port} is open <br>`;
-                }
-                // results!.innerHTML += `Port ${port} is ${isOpen ? 'open' : 'closed'}<br>`;
-            });
-
+                invoke("scan_port", {ip, port}).then(isOpen => {
+                    const results = document.getElementById('results');
+                    if (isOpen) {
+                        results!.innerHTML += `Port ${port} is open <br>`;
+                    }
+                    // results!.innerHTML += `Port ${port} is ${isOpen ? 'open' : 'closed'}<br>`;
+                });
 
         }
-
         // learn more about tauri commands at https://tauri.app/v1/guides/features/command
     }
 
     return (
         <div className="container">
-            <h1>Port Scanner</h1>
+            <h1>Bolt's first Port Scanner</h1>
             <body>
             <input id={"ip"} type="text" placeholder="IP Address"/>
             <input id={"startPort"} type="number" placeholder="Start Port"/>
